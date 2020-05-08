@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<form  class="form-horizontal" action="{{ url_for('upload') }}" method="POST" enctype=multipart/form-data>
+	{{form.hidden_tag()}}
+	<div class="control-group">
+    <label for="message" class="control-label">Message:</label>
+		<div class="controls">
+			{{ form.message(maxlength = 120, class = "span5") }}
+		</div>
+	</div>
+	<div class="control-group">
+   	 <label for="to_user" class="control-label">To_User:</label>
+		<div class="controls">
+			{{ form.to_user( class = "span5") }}
+		</div>
+	</div>
+    <div>
+        <input type=file name=photo>
+    </div>
+	<div class="control-group">
+	<div class="controls">
+	<input class="btn btn-primary" type="submit" value="Post">
+	</div>
+	</div>
+</form>
+{% endblock %}

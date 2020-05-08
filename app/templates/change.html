@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+{% include 'flash.html' %}
+<h1>Change Your Post</h1>
+	<form class="form-horizontal" action="{{ url_for('change',rubbish_id=post_id)}}" method="post" name="change">
+	{{form.hidden_tag()}}
+	<div class="control-group">
+		<label class="control-label" for="type">Type:</label>
+		<div class="controls">
+			{{ form.type(maxlength = 64, class = "span5") }}
+		</div>
+	</div>
+	<div class="control-group">
+		<label class="control-label" for="weight">Weight:</label>
+        <div class="controls">
+			{{ form.weight( class = "span5") }}
+		</div>
+	</div>
+    <div class="control-group">
+		<label class="control-label" for="community">Community:</label>
+		<div class="controls">
+			{{ form.community(maxlength = 64, class = "span5") }}
+		</div>
+	</div>
+	<div class="control-group">
+		<div class="controls">
+		<input class="btn btn-primary" type="submit" value="Save">
+		</div>
+	</div>
+	</form>
+{% endblock %}
