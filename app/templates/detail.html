@@ -1,20 +1,20 @@
 {% extends "base.html" %}
 {% block content %}
-            <header class="post-header">
-                <h2 class="post-type">{{ post.type }}</h2>
+    <header class="post-header">
+        <h2 class="post-type">{{ post.type }}</h2>
 
-                    <p class="post-meta">
-                      <strong><a> {{ post.time}}</a> </strong>
-                    </p>
-            </header>
+        <p class="post-meta">
+            <strong><a> {{ post.time }}</a> </strong>
+        </p>
+    </header>
 
-                <div class="post-description">
-                    <p>
-                        {{ post.weight }}
-                    </p>
-                    <p>
-                        {{ post.community }}
-                    </p>
-                </div>
+    <div class="post-description">
+        <p>
+            {{ post.weight }}
+        </p>
+        <p>
+            {{ post.community }}
+        </p>
+    </div>
 
 {% endblock %}

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<div id="bar" style="width:1000px; height:600px;"></div>
+<script>
+    $(
+        function () {
+            var result_json = '{{ result_json|tojson }}';
+            // var result = JSON.parse(result_json);
+            var chart = echarts.init(document.getElementById('bar'), 'gray', { renderer: 'canvas' });
+            $.ajax({
+                type: "GET",
+                url: "http://127.0.0.1:5000/barChart",
+                dataType: 'json',
+                data: { result: result_json },
+                success: function (result) {
+                    chart.setOption(result);
+                }
+            });
+        }
+    )
+</script>
+
+{% endblock %}
