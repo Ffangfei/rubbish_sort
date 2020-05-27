@@ -4,9 +4,10 @@ from flask_login import LoginManager
 from flask import Flask
 from config import basedir
 from flask_uploads import UploadSet, IMAGES, configure_uploads
-
+from flask_cors import *
 
 app = Flask(__name__)
+CORS(app, supports_credentials=True)
 
 db = SQLAlchemy(app)
 app.config.from_object('config')

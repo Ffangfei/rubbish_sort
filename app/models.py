@@ -39,7 +39,9 @@ class User(db.Model):
 
     @classmethod
     def login_check(cls, username, password):
-        user = cls.query.filter(db.and_(User.username == username, User.password == password)).first()
+        user = cls.query.filter(
+            db.and_(User.username == username,
+                    User.password == password)).first()
         if not user:
             return None
         return user
@@ -52,8 +54,8 @@ class Rubbish(db.Model):
     type = db.Column(db.String(100))
     weight = db.Column(db.Integer)
     community = db.Column(db.String(100))
-    time = db.Column(db.DateTime,
-                     default=datetime.strptime(datetime.now().strftime('%Y-%m-%d %H:%M:%S'), '%Y-%m-%d %H:%M:%S'))
+    time = db.Column(db.DateTime, default=datetime.now)
+    date = db.Column(db.DateTime)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
     def __repr__(self):
